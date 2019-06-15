@@ -39,7 +39,7 @@ public class Rectangle extends Figure {
     public void draw(GraphicsContext gc) {
         gc.setLineWidth(lineWidth);
         gc.setStroke(color);
-        gc.strokeRect(cx - width / 2, cy - higth / 2, cx + width / 2, cy + higth / 2);
+        gc.strokeRect(cx - (width / 2), cy - (higth / 2), width, higth);
     }
 
     @Override
