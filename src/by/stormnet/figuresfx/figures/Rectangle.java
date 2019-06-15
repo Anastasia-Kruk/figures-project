@@ -1,8 +1,6 @@
 package by.stormnet.figuresfx.figures;
-
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
 import java.util.Objects;
 
 public class Rectangle extends Figure {

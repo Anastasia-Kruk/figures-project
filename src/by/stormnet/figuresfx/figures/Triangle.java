@@ -1,8 +1,6 @@
 package by.stormnet.figuresfx.figures;
-
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-
 import java.util.Objects;
 
 public class Triangle extends Figure {
@@ -30,9 +28,9 @@ public class Triangle extends Figure {
         gc.setLineWidth(lineWidth);
         gc.setStroke(color);
         gc.beginPath();
-        gc.moveTo(cx + lenght / 2, cy +((Math.sqrt(Math.pow(lenght,2)-Math.pow(lenght/2,2)))/3));
-        gc.lineTo(cx-lenght/2, cy + ((Math.sqrt(Math.pow(lenght,2)-Math.pow(lenght/2,2)))/3));
-        gc.lineTo(cx , cy - (2*(Math.sqrt(Math.pow(lenght,2)-Math.pow(lenght/2,2)))/3));
+        gc.moveTo(cx + lenght / 2, cy + ((Math.sqrt(Math.pow(lenght, 2) - Math.pow(lenght / 2, 2))) / 3));
+        gc.lineTo(cx - lenght / 2, cy + ((Math.sqrt(Math.pow(lenght, 2) - Math.pow(lenght / 2, 2))) / 3));
+        gc.lineTo(cx, cy - (2 * (Math.sqrt(Math.pow(lenght, 2) - Math.pow(lenght / 2, 2))) / 3));
         gc.closePath();
         gc.stroke();
     }
