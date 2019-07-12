@@ -1,20 +1,21 @@
 package by.stormnet.figuresfx.figures;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import java.util.Objects;
 
 public class Rectangle extends Figure {
     private double width;
-    private double higth;
+    private double height;
 
     public Rectangle(double cx, double cy, double lineWidth, Color color) {
         super(FIGURE_TYPE_RECTANGLE, cx, cy, lineWidth, color);
     }
 
-    public Rectangle(double cx, double cy, double lineWidth, Color color, double width, double higth) {
+    public Rectangle(double cx, double cy, double lineWidth, Color color, double width, double height) {
         this(cx, cy, lineWidth, color);
-        this.width = width;
-        this.higth = higth;
+        this.width = width < 30 ? 30 : width;
+        this.height = height < 30 ? 30 : height;
     }
 
     public double getWidth() {
@@ -25,19 +26,20 @@ public class Rectangle extends Figure {
         this.width = width;
     }
 
-    public double getHigth() {
-        return higth;
+    public double getHeight() {
+        return height;
     }
 
-    public void setHigth(double higth) {
-        this.higth = higth;
+    public void setHeight(double heigth) {
+        this.height = heigth;
     }
 
     @Override
     public void draw(GraphicsContext gc) {
         gc.setLineWidth(lineWidth);
         gc.setStroke(color);
-        gc.strokeRect(cx - (width / 2), cy - (higth / 2), width, higth);
+        gc.beginPath();
+        gc.strokeRect(cx - (width / 2), cy - (height / 2), width, height);
     }
 
     @Override
@@ -46,19 +48,19 @@ public class Rectangle extends Figure {
         if (o == null || getClass() != o.getClass()) return false;
         Rectangle rectangle = (Rectangle) o;
         return Double.compare(rectangle.width, width) == 0 &&
-                Double.compare(rectangle.higth, higth) == 0;
+                Double.compare(rectangle.height, height) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(width, higth);
+        return Objects.hash(width, height);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Rectangle{");
         sb.append("width=").append(width);
-        sb.append(", higth=").append(higth);
+        sb.append(", higth=").append(height);
         sb.append(", cx=").append(cx);
         sb.append(", cy=").append(cy);
         sb.append(", lineWidth=").append(lineWidth);
